@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Color de Fondo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #mensaje {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="mensaje">No me gusta la programación</div>
+    <button id="cambiarColorBtn">Cambiar color de fondo</button>
+
+    <script>
+        window.onload = function() {
+            document.getElementById("mensaje").innerText = "No me gusta la programación";
+        };
+
+        // Arreglo de colores
+        var colores = ["#FF5733", "#33FF57", "#3357FF", "#F1C40F", "#9B59B6", "#1ABC9C", "#E74C3C", "#8E44AD", "#2980B9", "#27AE60"];
+
+        // Función para cambiar el color de fondo
+        document.getElementById("cambiarColorBtn").onclick = function() {
+            var colorSeleccionado = "";
+
+            // Ciclo for para seleccionar un color aleatorio del arreglo
+            for (var i = 0; i < colores.length; i++) {
+                var indiceAleatorio = Math.floor(Math.random() * colores.length);
+                colorSeleccionado = colores[indiceAleatorio];
+            }
+
+            // Cambiar el color de fondo
+            document.body.style.backgroundColor = colorSeleccionado;
+        };
+    </script>
+</body>
+</html>
